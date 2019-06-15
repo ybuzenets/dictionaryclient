@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.nio.charset.Charset;
 import java.util.logging.Logger;
 
 public class Client {
@@ -24,6 +25,7 @@ public class Client {
             ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()))
         ) {
+            oos.writeUTF(Charset.defaultCharset().name());
             oos.writeUTF(args.getCommand());
             oos.writeObject(args.getArgs());
             bufferedReader.lines()
