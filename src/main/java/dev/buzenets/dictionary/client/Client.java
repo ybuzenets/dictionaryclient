@@ -8,8 +8,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.logging.Logger;
 
 public class Client {
+    private static final Logger LOG = Logger.getLogger(Client.class.getName());
+
     public static void main(String[] argv) {
         final Args args = new Args();
         JCommander.newBuilder()
@@ -24,9 +27,9 @@ public class Client {
             oos.writeUTF(args.getCommand());
             oos.writeObject(args.getArgs());
             bufferedReader.lines()
-                .forEach(System.out::println);
+                .forEach(LOG::info);
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.severe(e::getMessage);
         }
     }
 }
