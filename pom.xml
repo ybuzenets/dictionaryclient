@@ -10,7 +10,7 @@
     <packaging>jar</packaging>
 
     <name>dictionaryclient</name>
-    <url>http://www.buzenets.dev/dictionary</url>
+    <url>http://dictionary.buzenets.dev:2323</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
